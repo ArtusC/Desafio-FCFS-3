@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: des2-api-route
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: des2-api-route
+  template:
+    metadata:
+      name: des2-api-route
+      labels:
+        app.kubernetes.io/name: des2-api-route
+    spec:
+      containers:
+        - name: des2-api-route
+          image: artusc/des2-api-route
+          ports:
+            - containerPort: 3000
